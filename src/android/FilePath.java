@@ -49,12 +49,11 @@ public class FilePath extends CordovaPlugin {
 
     public static final String READ = Manifest.permission.READ_EXTERNAL_STORAGE;
     public static final String READ_MEDIA_IMAGES_SDK33 = Manifest.permission.READ_MEDIA_IMAGES;
-    public static final String READ_MEDIA_AUDIO_SDK33 = Manifest.permission.READ_MEDIA_AUDIO;
     public static final String READ_MEDIA_VIDEO_SDK33 = Manifest.permission.READ_MEDIA_VIDEO;
 
     protected void getReadPermission(int requestCode) {
         if(Build.VERSION.SDK_INT >=33){
-            PermissionHelper.requestPermissions(this, requestCode, new String[]{READ_MEDIA_IMAGES_SDK33, READ_MEDIA_AUDIO_SDK33, READ_MEDIA_VIDEO_SDK33 });
+            PermissionHelper.requestPermissions(this, requestCode, new String[]{READ_MEDIA_IMAGES_SDK33, READ_MEDIA_VIDEO_SDK33 });
         }
         PermissionHelper.requestPermission(this, requestCode, READ);
     }
